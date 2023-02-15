@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-
+import { Link, useLocation } from "react-router-dom";
 const NavBar = () => {
+  const location = useLocation();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -17,7 +18,15 @@ const NavBar = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">TV Shows</Nav.Link>
+            <Link
+              className={`nav-link ${
+                location.pathname === "/tv-shows" ? "active" : ""
+              }`}
+              to="/tv-shows"
+            >
+              TV Shows
+            </Link>
+
             <Nav.Link href="#pricing">Recently Added</Nav.Link>
             <Nav.Link href="#pricing">My List </Nav.Link>
           </Nav>

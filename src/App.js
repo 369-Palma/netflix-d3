@@ -6,19 +6,26 @@ import Footer from "./components/Footer";
 import DropDown from "./components/Dropdown";
 import Titoli from "./components/TitoliRiga";
 import PhotoGallery from "./components/Galleria";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TVShowPage from "./components/TVShows";
 function App() {
   return (
     <div className="App">
-      <NavBar href="#"></NavBar>
-      <DropDown></DropDown>
-      <Titoli title="Trending Now"></Titoli>
-      <PhotoGallery titolo="money%20heist"></PhotoGallery>
-      <Titoli title="Watch it Again"></Titoli>
-      <PhotoGallery titolo="Orphan%20Black"></PhotoGallery>
-      <Titoli title="New Releases"></Titoli>
-      <PhotoGallery titolo="queen"></PhotoGallery>
-      <Footer href="#"></Footer>
+      <BrowserRouter>
+        <NavBar href="#"></NavBar>
+        <DropDown></DropDown>
+        <Titoli title="Trending Now"></Titoli>
+        <PhotoGallery titolo="money%20heist"></PhotoGallery>
+        <Titoli title="Watch it Again"></Titoli>
+        <PhotoGallery titolo="Orphan%20Black"></PhotoGallery>
+        <Titoli title="New Releases"></Titoli>
+        <PhotoGallery titolo="queen"></PhotoGallery>
+        <Footer href="#"></Footer>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/tv-shows" element={<TVShowPage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
